@@ -5,136 +5,284 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>QAME — Support</title>
   <meta name="description" content="QAME support: help, troubleshooting, FAQs, and contact information.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Comfortaa:wght@300;400;500;600;700&display=swap" rel="stylesheet">
   <style>
     * { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
     body { 
       background: #000; 
       color: #fff; 
-      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
-      line-height: 1.6;
-      padding: 60px 20px;
+      font-family: 'Comfortaa', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      line-height: 1.7;
+      padding: 40px 20px;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
     }
-    .container { max-width: 720px; margin: 0 auto; }
+    .container { max-width: 800px; margin: 0 auto; }
     
-    header { margin-bottom: 80px; text-align: center; }
+    /* Navigation */
+    nav {
+      position: fixed;
+      top: 20px;
+      right: 20px;
+      z-index: 100;
+      background: rgba(0,0,0,0.8);
+      backdrop-filter: blur(10px);
+      border: 1px solid rgba(255,255,255,0.1);
+      border-radius: 12px;
+      padding: 12px 16px;
+      display: flex;
+      gap: 12px;
+    }
+    nav a {
+      color: #fff;
+      text-decoration: none;
+      font-size: 13px;
+      font-weight: 500;
+      padding: 6px 12px;
+      border-radius: 6px;
+      transition: all 0.3s ease;
+    }
+    nav a:hover {
+      color: #fff;
+      background: rgba(255,255,255,0.1);
+    }
+    
+    header { margin-bottom: 100px; text-align: center; padding-top: 60px; }
     .logo { 
       display: flex;
       align-items: center;
       justify-content: center;
-      margin-bottom: 24px;
+      margin-bottom: 32px;
+      transition: transform 0.3s ease;
     }
-    .logo img { height: 120px; width: auto; display: block; border-radius: 6px; }
+    .logo:hover { transform: scale(1.05); }
+    .logo img { height: 140px; width: auto; display: block; border-radius: 12px; }
     h1 { 
-      font-size: 48px; 
-      font-weight: 300; 
-      letter-spacing: -1px;
-      margin-bottom: 12px;
+      font-size: 52px; 
+      font-weight: 600; 
+      letter-spacing: -0.5px;
+      margin-bottom: 16px;
+      color: #fff;
     }
     .lead { 
-      font-size: 18px; 
-      color: #999; 
-      font-weight: 300;
+      font-size: 19px; 
+      color: #aaa; 
+      font-weight: 400;
+      max-width: 600px;
+      margin: 0 auto;
     }
     
     section { 
-      margin-bottom: 80px;
-      padding-bottom: 80px;
-      border-bottom: 1px solid #1a1a1a;
+      margin-bottom: 100px;
+      padding-bottom: 100px;
+      border-bottom: 1px solid rgba(255,255,255,0.08);
+      scroll-margin-top: 80px;
     }
-    section:last-of-type { border-bottom: none; }
+    #contact {
+      text-align: center;
+    }
+    #contact .tip {
+      text-align: left;
+    }
+    section:last-of-type { border-bottom: none; margin-bottom: 60px; padding-bottom: 60px; }
     
     h2 { 
-      font-size: 14px; 
-      font-weight: 500; 
-      letter-spacing: 2px; 
+      font-size: 15px; 
+      font-weight: 600; 
+      letter-spacing: 1.5px; 
       text-transform: uppercase;
-      color: #666;
-      margin-bottom: 32px;
+      color: #888;
+      margin-bottom: 36px;
+      padding-bottom: 12px;
+      border-bottom: 2px solid rgba(255,255,255,0.1);
     }
     
     .contact-btn {
       display: inline-block;
       background: #fff;
       color: #000;
-      padding: 16px 32px;
-      border-radius: 2px;
-      font-weight: 500;
+      padding: 18px 36px;
+      border-radius: 8px;
+      font-weight: 600;
+      font-size: 16px;
       text-decoration: none;
-      transition: all 0.2s;
+      transition: all 0.3s ease;
       margin-bottom: 16px;
+      box-shadow: 0 4px 20px rgba(255,255,255,0.1);
     }
     .contact-btn:hover {
-      background: #e5e5e5;
-      transform: translateY(-1px);
+      background: #f5f5f5;
+      transform: translateY(-2px);
+      box-shadow: 0 6px 30px rgba(255,255,255,0.2);
     }
     
     .meta { 
-      font-size: 14px; 
-      color: #666; 
-      margin-top: 12px;
+      font-size: 15px; 
+      color: #777; 
+      margin-top: 16px;
+      font-weight: 400;
     }
     
     .tip {
-      background: #0a0a0a;
-      border-left: 2px solid #333;
-      padding: 20px;
-      margin-top: 24px;
-      font-size: 14px;
-      color: #999;
+      background: rgba(255,255,255,0.03);
+      border-left: 3px solid rgba(255,255,255,0.3);
+      border-radius: 8px;
+      padding: 20px 24px;
+      margin-top: 28px;
+      font-size: 15px;
+      color: #bbb;
+      transition: all 0.3s ease;
+    }
+    .tip:hover {
+      background: rgba(255,255,255,0.05);
+      border-left-color: rgba(255,255,255,0.5);
     }
     
     ul { 
       list-style: none; 
     }
     li { 
-      margin-bottom: 28px;
-      padding-left: 20px;
+      margin-bottom: 32px;
+      padding-left: 24px;
       position: relative;
+      transition: padding-left 0.3s ease;
+    }
+    li:hover {
+      padding-left: 32px;
     }
     li:before {
-      content: "—";
+      content: "▸";
       position: absolute;
       left: 0;
-      color: #333;
+      color: #555;
+      font-size: 14px;
+      transition: all 0.3s ease;
+    }
+    li:hover:before {
+      color: #fff;
+      left: 4px;
     }
     
     strong { 
       color: #fff; 
-      font-weight: 500;
+      font-weight: 600;
       display: block;
-      margin-bottom: 4px;
+      margin-bottom: 8px;
+      font-size: 16px;
     }
     
     .footer { 
       text-align: center; 
-      color: #333; 
-      font-size: 11px;
-      letter-spacing: 1px;
+      color: #444; 
+      font-size: 12px;
+      letter-spacing: 0.5px;
       margin-top: 120px;
+      padding-top: 40px;
+      border-top: 1px solid rgba(255,255,255,0.05);
     }
     
-    a { color: inherit; }
+    a { color: inherit; transition: all 0.3s ease; }
     
     @media (max-width: 640px) {
       body { padding: 40px 20px; }
-      h1 { font-size: 36px; }
-      .lead { font-size: 16px; }
-      section { margin-bottom: 60px; padding-bottom: 60px; }
-      .logo img { height: 80px; }
+      nav {
+        top: 10px;
+        right: 10px;
+        padding: 10px 12px;
+        gap: 8px;
+      }
+      nav a {
+        font-size: 12px;
+        padding: 5px 10px;
+      }
+      header { padding-top: 80px; margin-bottom: 60px; }
+      h1 { font-size: 42px; }
+      .lead { font-size: 17px; }
+      section { margin-bottom: 70px; padding-bottom: 70px; scroll-margin-top: 60px; }
+      .logo img { height: 100px; }
+      h2 { font-size: 14px; margin-bottom: 28px; }
+      .contact-btn { padding: 16px 28px; font-size: 15px; }
     }
     /* Modal */
-    .modal-backdrop { position: fixed; inset: 0; background: rgba(0,0,0,0.6); display: none; align-items: center; justify-content: center; padding: 20px; }
-    .modal { background: #0b0b0b; color: #ddd; max-width: 720px; width: 100%; border: 1px solid #1a1a1a; border-radius: 8px; padding: 22px; box-shadow: 0 20px 60px rgba(0,0,0,0.5); }
-    .modal h3 { margin: 0 0 8px; font-size: 20px; color: #fff; font-weight: 600; }
-    .modal .updated { font-size: 12px; color: #777; margin-bottom: 16px; }
-    .modal .close { appearance: none; border: 0; background: #131313; color: #aaa; padding: 8px 12px; border-radius: 6px; cursor: pointer; }
-    .modal .close:hover { color: #fff; }
-    .modal-actions { display: flex; justify-content: flex-end; margin-top: 12px; }
-    .privacy-btn { display: inline-block; color: #999; border: 1px solid #1a1a1a; padding: 8px 12px; border-radius: 4px; text-decoration: none; font-size: 13px; }
-    .privacy-btn:hover { color: #fff; background: #0e0e0e; }
+    .modal-backdrop { 
+      position: fixed; 
+      inset: 0; 
+      background: rgba(0,0,0,0.7); 
+      backdrop-filter: blur(4px);
+      display: none; 
+      align-items: center; 
+      justify-content: center; 
+      padding: 20px; 
+      z-index: 1000;
+      animation: fadeIn 0.3s ease;
+    }
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+    .modal { 
+      background: #0a0a0a; 
+      color: #ddd; 
+      max-width: 720px; 
+      width: 100%; 
+      border: 1px solid rgba(255,255,255,0.1); 
+      border-radius: 12px; 
+      padding: 32px; 
+      box-shadow: 0 20px 60px rgba(0,0,0,0.8);
+      animation: slideUp 0.3s ease;
+    }
+    @keyframes slideUp {
+      from { transform: translateY(20px); opacity: 0; }
+      to { transform: translateY(0); opacity: 1; }
+    }
+    .modal h3 { margin: 0 0 12px; font-size: 24px; color: #fff; font-weight: 600; }
+    .modal .updated { font-size: 13px; color: #777; margin-bottom: 20px; font-weight: 400; }
+    .modal .close { 
+      appearance: none; 
+      border: 0; 
+      background: rgba(255,255,255,0.1); 
+      color: #aaa; 
+      padding: 10px 20px; 
+      border-radius: 8px; 
+      cursor: pointer; 
+      font-family: 'Comfortaa', sans-serif;
+      font-weight: 500;
+      font-size: 14px;
+      transition: all 0.3s ease;
+    }
+    .modal .close:hover { 
+      color: #fff; 
+      background: rgba(255,255,255,0.15);
+      transform: translateY(-1px);
+    }
+    .modal-actions { display: flex; justify-content: flex-end; margin-top: 24px; }
+    .privacy-btn { 
+      display: inline-block; 
+      color: #999; 
+      border: 1px solid rgba(255,255,255,0.1); 
+      padding: 8px 16px; 
+      border-radius: 6px; 
+      text-decoration: none; 
+      font-size: 13px; 
+      font-weight: 500;
+      transition: all 0.3s ease;
+    }
+    .privacy-btn:hover { 
+      color: #fff; 
+      background: rgba(255,255,255,0.05);
+      border-color: rgba(255,255,255,0.2);
+    }
   </style>
 </head>
 <body>
+  <nav>
+    <a href="#contact">Contact</a>
+    <a href="#troubleshooting">Troubleshooting</a>
+    <a href="#faqs">FAQs</a>
+  </nav>
   <div class="container">
     <header>
       <div class="logo"><img src="qame-high-resolution-logo.png" alt="QAME logo"></div>
@@ -142,7 +290,7 @@
       <p class="lead">Help, troubleshooting, and contact information</p>
     </header>
 
-    <section>
+    <section id="contact">
       <h2>Contact</h2>
       <a class="contact-btn" href="mailto:haroonbost123@gmail.com?subject=QAME%20Support">haroonbost123@gmail.com</a>
       <div class="meta">Response time: 1–2 business days</div>
@@ -151,7 +299,7 @@
       </div>
     </section>
 
-    <section>
+    <section id="troubleshooting">
       <h2>Troubleshooting</h2>
       <ul>
         <li>
@@ -181,7 +329,7 @@
       </ul>
     </section>
 
-    <section>
+    <section id="faqs">
       <h2>FAQs</h2>
       <ul>
         <li>
@@ -227,7 +375,7 @@
     <div class="modal">
       <h3 id="privacyTitle">Privacy Policy</h3>
       <div class="updated" id="privacyUpdated">Last updated: 2025-10-30</div>
-      <div class="content" style="font-size:14px; color:#bbb; line-height:1.6">
+      <div class="content" style="font-size:15px; color:#bbb; line-height:1.7; font-family: 'Comfortaa', sans-serif;">
         <p><strong>Who we are</strong> — QAME helps you learn and memorize Quran with reading and audio tools.</p>
         <p><strong>What we collect</strong> — Optional account info (email/profile), learning progress (verses, bookmarks, settings), basic device/OS info and usage data, and anything you email us for support.</p>
         <p><strong>How we use it</strong> — Provide core features, sync across devices, improve reliability and security, and respond to support requests.</p>
